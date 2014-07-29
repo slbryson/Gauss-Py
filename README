@@ -1,0 +1,8 @@
+This directory contains the Gaussian Process interpolation Python Scripts
+Four files and main program is originally written as a iPython Notebook.
+UMTS_GP_linux.ipynb
+cell_mm_linux.py
+get_loc_linux.py
+getwcdma_linux.py
+1. There may need to be modifications to which directory in the dBase are being used.
+
