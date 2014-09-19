@@ -8,7 +8,7 @@ def getwcdma():
 	import pyodbc
 	import numpy as np
 	
-	#constr =r'DSN=sqlserverdatasource;DRIVER={FreeTDS}; DATABASE=wms_kpi;uid=slbryson; Pwd=marapr222!;'
+	#constr =r'DSN=sqlserverdatasource;DRIVER={FreeTDS}; DATABASE=wms_kpi;uid=slbryson; Pwd=!;'
 	constr =getDBConnStringConfig()
 	
 	listTable =['wms_kpi.dbo.test','wms_kpi.dbo.location', 'wms_kpi.dbo.carriera0830','wms_kpi.dbo.carrierb1630']
