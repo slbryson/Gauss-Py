@@ -3,6 +3,8 @@
 #cells and returns the mean and the matched location of the cells.
 # loc should have columns nameid, lat, long; dbdata should have nameid, data1,data2
 # we are interested in the data2 or third column of the data
+# Modified the return values to include min, max so we can restore the range
+# 9/24/2014  Sidney L. Bryson
 
 def cell_mm(loc,dbdata):
     # In this case mm means match and mean.  This is a specific module used to match UMTS data
@@ -31,7 +33,8 @@ def cell_mm(loc,dbdata):
     # So sub-sample the location matrix with matches.
 
     # lets try a better way to find the mean of the columns
-    my_mean = try_this.sum(1) / (try_this != 0).sum(1)
+    my_mean = try_this.sum(1)/(try_this != 0).sum(1)
     # We will return the mean vector and corresponding location of the matches
+    #print "Don't tell me you need more than two!!", (try_this !=0).sum(1)
     
     return ind,my_mean

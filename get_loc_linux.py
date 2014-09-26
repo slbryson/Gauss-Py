@@ -1,6 +1,8 @@
 ##python
 ## This module reads from the UMTS database in SaaS and returns a cell name, latitude and longitude
-## unfornuately, the password is hardcoded for the access
+# ConfigParser allows the user to set up their own access creditials in a config file
+#  For this function since the location data doesn't change for the cells 
+# then we don't need offer a selection.
 import datetime
 import pyodbc
 import numpy as np
@@ -12,7 +14,7 @@ def get_loc ():
 	#constr =r'DSN=sqlserverdatasource;DRIVER={FreeTDS}; DATABASE=wms_kpi;uid=slbryson; Pwd=!;'
 	constr = getDBConnStringConfig()
 	
-	listTable =['wms_kpi.dbo.test','wms_kpi.dbo.location']
+	listTable =['null','wms_kpi.dbo.location']
 
 	#We need to sort the results based on cell name. 
 	print listTable[1]
@@ -50,7 +52,8 @@ def get_loc ():
 	    name[rows] = kk[rows][4]
 	    #print  rec.latitude, rec.longitude
 	    #print lat
-	if True:
+	# Debug
+	if False:
 	    for rows in range(65,80):
 	        print lat[rows], name[rows],lon[rows]
 	c.close()

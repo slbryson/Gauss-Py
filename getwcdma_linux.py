@@ -1,9 +1,10 @@
 #function to get wcma data.  Currently only for test.  
 # Will add the capability to pass the dbase name as argument
+# Adding the ability to pass the dbase argument 9/24/2014
 import ConfigParser
 CONFIG_FILE = 'config.ini'
 
-def getwcdma():
+def getwcdma(tablename):
 	import datetime
 	import pyodbc
 	import numpy as np
@@ -11,11 +12,12 @@ def getwcdma():
 	#constr =r'DSN=sqlserverdatasource;DRIVER={FreeTDS}; DATABASE=wms_kpi;uid=slbryson; Pwd=!;'
 	constr =getDBConnStringConfig()
 	
-	listTable =['wms_kpi.dbo.test','wms_kpi.dbo.location', 'wms_kpi.dbo.carriera0830','wms_kpi.dbo.carrierb1630']
+	#listTable =['wms_kpi.dbo.test','wms_kpi.dbo.location', 'wms_kpi.dbo.carriera0830','wms_kpi.dbo.carrierb1630']
+	print tablename
 
 	#We need to sort the results based on cell name. 
 	 
-	str = 'select * from ' + listTable[0]
+	str = 'select * from ' + tablename
 	 
 	con = pyodbc.connect(constr)
 	c = con.cursor()
